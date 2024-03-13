@@ -1,0 +1,29 @@
+---
+import Section from "./Section.astro";
+import EcoMission from "./icons/EcoMission.astro";
+import FutureGenius from "./icons/FutureGenius.astro";
+import Iberdrola from "./icons/Iberdrola.astro";
+import Immune from "./icons/Immune.astro";
+---
+
+<Section full>
+  <div
+    class="animate-fade-in-down animate-delay-1000"
+  >
+    <FutureGenius />
+    <small class="bg-white py-1 px-2 rounded-md block mt-1">6 de abril · Online</small>
+  </div>
+  <div class="max-w-64 lg:max-w-96 py-5">
+    <EcoMission />
+  </div>
+  <div
+    class="grid sm:grid-cols-2 place-items-center gap-4 animate-fade-in-up animate-delay-1000"
+  >
+    <span class="max-w-36">
+      <Iberdrola />
+    </span>
+    <span class="max-w-32">
+      <Immune />
+    </span>
+  </div>
+</Section>

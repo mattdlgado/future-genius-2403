@@ -1,38 +1,53 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
-import Context from "../components/Context.astro";
+import Title from "../components/Title.astro";
+import History from "../components/History.astro";
+import Main from "../components/Main.astro";
 ---
 
 <Layout title="Welcome to Astro.">
   <img
+    id="background"
     src="/background.webp"
     alt="Background"
-    class="fixed top-0 left-0 -z-10 w-full h-[100dvh] object-cover animate-fade-in animate-duration-1000 animate-delay-1000"
+    class="fixed top-0 left-0 -z-10 w-full h-[100dvh] object-cover object-top"
   />
   <img
     id="girl"
     src="/girl.webp"
     alt="Girl"
-    class="fixed -z-10 lg:z-10 top-0 left-0 w-3/4 sm:w-1/2 h-[100dvh] object-contain object-bottom drop-shadow-big"
+    class="fixed z-10 top-0 left-0 w-3/4 sm:w-1/2 h-[100dvh] object-contain object-bottom drop-shadow-big"
   />
 
   <Hero />
 
-  <Context />
+  <Title />
 
-  <div class="h-[1000px]"></div>
+  <History />
+
+  <Main />
+
+  <video
+    id="glitch"
+    class="min-h-full min-w-full object-cover fixed z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-screen"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="/glitch.mp4" type="video/mp4" />
+  </video>
 </Layout>
 
 <style>
-  #girl {
-    transform: translateX(-100%);
-    animation: slide 1000ms ease-in-out forwards 1000ms;
+  #background {
+    opacity: 0;
+    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
   }
 
-  @keyframes slide {
-    100% {
-      transform: translateX(0);
-    }
+  #girl {
+    transform: translateX(-100%);
+    animation: slideRight 1000ms ease-in-out forwards 1000ms;
   }
 </style>

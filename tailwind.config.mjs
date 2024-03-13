@@ -6,10 +6,12 @@ export default {
     extend: {
       fontFamily: {
         body: ['"Montserrat Variable"', "sans-serif"],
+        accent: ["Oswald Variable", "sans-serif"],
+        mono: ["Sometype Mono Variable", "monospace"],
       },
       dropShadow: {
-        'big': '0 40px 40px rgba(0, 0, 0, 0.5)'
-      }
+        big: "0 40px 40px rgba(0, 0, 0, 0.5)",
+      },
     },
   },
   plugins: [animations],

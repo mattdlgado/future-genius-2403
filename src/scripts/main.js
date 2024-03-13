@@ -1,61 +1,106 @@
+//
+document.addEventListener("DOMContentLoaded", (event) => {
+  // Encuentra el enlace por su ID
+  const enlace = document.getElementById("info");
+
+  enlace.addEventListener("click", function (e) {
+    // Previene el comportamiento predeterminado del enlace
+    e.preventDefault();
+
+    // Obtiene el ID del elemento de destino desde el atributo href
+    const destinoID = this.getAttribute("href").substring(1);
+    const destino = document.getElementById(destinoID);
+
+    // Desplaza hacia el elemento destino
+    destino.scrollIntoView({
+      behavior: "smooth", // Define el desplazamiento suave
+      block: "start", // Alinea el elemento destino al inicio de la ventana
+    });
+  });
+});
+
+// GSAP
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-function setupAnimation() {
-  // Define tus breakpoints
-  const breakpoints = {
-    mobile: 480, // Ejemplo para móviles
-    tablet: 768, // Ejemplo para tablets
-    desktop: 1024, // Ejemplo para escritorios
-  };
+const breakpoints = {
+  mobile: 480,
+  tablet: 768,
+  desktop: 1024,
+};
 
-  // Calcula el ancho de la ventana aquí, antes de usarlo en las condiciones
-  const windowWidth = window.innerWidth;
-  
-  // Inicializa la variable speed fuera de los bloques if para que su alcance sea global dentro de la función
-  let speed;
-
-  // Ajusta la animación según el tamaño de la ventana
+function getSpeed(windowWidth) {
   if (windowWidth < breakpoints.tablet) {
-    // Configuración para dispositivos móviles
-    speed = 2;
-  } else if (windowWidth >= breakpoints.tablet && windowWidth < breakpoints.desktop) {
-    // Configuración para tablets
-    speed = 3;
-  } else {
-    // Configuración para escritorios
-    speed = 4;
+    return 1; // móviles
+  } else if (windowWidth < breakpoints.desktop) {
+    return 2; // tablets
   }
+  return 3; // escritorios
+}
 
-  // Calcula el ancho de la sección aquí, después de definir speed, pero antes de usarlo en la animación
-  const sectionWidth = document.querySelector("#context > p").offsetWidth + 20;
+function horizontalTitle() {
+  const windowWidth = window.innerWidth;
+  const speed = getSpeed(windowWidth);
+  const sectionWidth = document.querySelector("#title > p").offsetWidth;
 
-  // Solo inicia la animación si el ancho de la ventana es menor que el de la sección
   if (windowWidth < sectionWidth) {
-    gsap.to("#context > p", {
+    gsap.to("#title > p", {
       x: () => -(sectionWidth - windowWidth) + "px",
       ease: "none",
       scrollTrigger: {
-        trigger: "#context",
+        trigger: "#title",
         pin: true,
         scrub: 1,
-        // markers: true,
-        start: "center center",
+        start: "25% 25%",
         end: () => `+=${sectionWidth / speed} bottom`,
       },
     });
   }
 }
 
-// Ejecuta inicialmente la configuración de la animación
-setupAnimation();
+function historySection() {
+  gsap.set("#background", { scale: 1 });
+  gsap.to("#background", {
+    scrollTrigger: {
+      trigger: "#history",
+      start: "top bottom",
+      end: "bottom top",
+      scrub: 10,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.to("#background", { scale: 1 + progress * 0.5 });
+      },
+    },
+  });
+}
 
-// Agrega un event listener para el evento resize
-window.addEventListener("resize", () => {
-  // Opcional: Mata todas las instancias de ScrollTrigger para evitar conflictos o comportamientos inesperados
+function showGlitch() {
+  gsap.set("#glitch", { opacity: 0 });
+  gsap.to("#glitch", {
+    scrollTrigger: {
+      trigger: "#main",
+      start: "-50% center",
+      end: "center center",
+      scrub: 10,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        gsap.to("#glitch", { opacity: progress });
+      },
+    },
+  });
+}
+
+function initFunctions() {
+  horizontalTitle();
+  historySection();
+  showGlitch();
+}
+
+function onResize() {
   ScrollTrigger.getAll().forEach((st) => st.kill());
+  initFunctions();
+}
 
-  // Vuelve a configurar la animación con las nuevas dimensiones
-  setupAnimation();
-});
+window.addEventListener("resize", onResize);
+initFunctions();

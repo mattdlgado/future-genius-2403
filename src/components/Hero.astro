@@ -1,24 +1,24 @@
 ---
-import Section from "./Section.astro";
+import Button from "./Button.astro";
 import EcoMission from "./icons/EcoMission.astro";
 import FutureGenius from "./icons/FutureGenius.astro";
 import Iberdrola from "./icons/Iberdrola.astro";
 import Immune from "./icons/Immune.astro";
 ---
 
-<Section full>
-  <div
-    class="animate-fade-in-down animate-delay-1000"
-  >
+<section class="page h-[100dvh] flex flex-col items-center justify-center z-50">
+  <div>
     <FutureGenius />
-    <small class="bg-white py-1 px-2 rounded-md block mt-1">6 de abril · Online</small>
+    <small
+      class="bg-white font-accent text-[#F414A1] font-medium py-1 px-2 rounded-md block mt-1"
+      >8 ABRIL · ONLINE</small
+    >
   </div>
   <div class="max-w-64 lg:max-w-96 py-5">
     <EcoMission />
+    <h1 class="hidden">Future Genius - Eco Mission</h1>
   </div>
-  <div
-    class="grid sm:grid-cols-2 place-items-center gap-4 animate-fade-in-up animate-delay-1000"
-  >
+  <div class="grid sm:grid-cols-2 place-items-center gap-4 pb-4">
     <span class="max-w-36">
       <Iberdrola />
     </span>
@@ -26,4 +26,19 @@ import Immune from "./icons/Immune.astro";
       <Immune />
     </span>
   </div>
-</Section>
+  <Button href="#main" id="info" text="Más información" animated />
+</section>
+
+<style>
+  div:first-child {
+    opacity: 0;
+    transform: translatey(-24px);
+    animation: fadeInY 1000ms ease-in-out forwards 1000ms;
+  }
+
+  div:nth-child(3) {
+    opacity: 0;
+    transform: translatey(24px);
+    animation: fadeInY 1000ms ease-in-out forwards 1000ms;
+  }
+</style>

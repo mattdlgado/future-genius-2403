@@ -13,6 +13,8 @@
     "@astrojs/check": "^0.5.8",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/montserrat": "^5.0.18",
+    "@fontsource-variable/oswald": "^5.0.19",
+    "@fontsource-variable/sometype-mono": "^5.0.2",
     "@midudev/tailwind-animations": "^0.0.7",
     "astro": "^4.5.2",
     "gsap": "^3.12.5",

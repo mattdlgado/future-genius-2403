@@ -4,7 +4,7 @@ import "@fontsource-variable/montserrat";
 // Supports weights 200-700
 import "@fontsource-variable/oswald";
 // Supports weights 400-700
-import '@fontsource-variable/sometype-mono';
+import "@fontsource-variable/sometype-mono";
 
 interface Props {
   title: string;
@@ -23,7 +23,9 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="font-mono text-base bg-neutral-950 text-neutral-50 overflow-x-hidden">
+  <body
+    class="bg-green-950 font-mono text-base text-neutral-50 px-10 overflow-x-hidden"
+  >
     <slot />
     <script src="../scripts/main.js"></script>
   </body>
@@ -32,10 +34,6 @@ const { title } = Astro.props;
 <style is:global>
   svg {
     @apply max-w-full h-auto;
-  }
-
-  .page {
-    @apply relative w-full lg:w-[45%] lg:ms-[45%] p-4;
   }
 
   @keyframes fadeIn {

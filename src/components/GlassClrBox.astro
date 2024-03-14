@@ -1,0 +1,16 @@
+---
+interface Props {
+  preserveH?: boolean;
+}
+
+const { preserveH } = Astro.props;
+---
+
+<div
+  class:list={[
+    "lg:w-[45vw] bg-green-400/10 border border-green-50/25 backdrop-blur p-6 rounded-3xl text-green-950 font-bold relative overflow-x-hidden overflow-y-auto",
+    { "max-h-[80vh]": preserveH },
+  ]}
+>
+  <slot />
+</div>

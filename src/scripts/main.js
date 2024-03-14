@@ -1,23 +1,4 @@
 //
-document.addEventListener("DOMContentLoaded", (event) => {
-  // Encuentra el enlace por su ID
-  const enlace = document.getElementById("info");
-
-  enlace.addEventListener("click", function (e) {
-    // Previene el comportamiento predeterminado del enlace
-    e.preventDefault();
-
-    // Obtiene el ID del elemento de destino desde el atributo href
-    const destinoID = this.getAttribute("href").substring(1);
-    const destino = document.getElementById(destinoID);
-
-    // Desplaza hacia el elemento destino
-    destino.scrollIntoView({
-      behavior: "smooth", // Define el desplazamiento suave
-      block: "start", // Alinea el elemento destino al inicio de la ventana
-    });
-  });
-});
 
 // GSAP
 import { gsap } from "gsap";
@@ -59,42 +40,23 @@ function horizontalTitle() {
   }
 }
 
-function historySection() {
-  gsap.set("#background", { scale: 1 });
-  gsap.to("#background", {
-    scrollTrigger: {
-      trigger: "#history",
-      start: "top bottom",
-      end: "bottom top",
-      scrub: 10,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        gsap.to("#background", { scale: 1 + progress * 0.5 });
-      },
-    },
-  });
-}
-
-function showGlitch() {
-  gsap.set("#glitch", { opacity: 0 });
-  gsap.to("#glitch", {
+function challenges() {
+  let sections = gsap.utils.toArray(".challenge");
+  gsap.to(sections, {
+    xPercent: -100 * (sections.length - 1),
+    ease: "none",
     scrollTrigger: {
       trigger: "#main",
-      start: "-50% center",
-      end: "center center",
-      scrub: 10,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        gsap.to("#glitch", { opacity: progress });
-      },
+      pin: true,
+      scrub: true,
+      end: () => "+=" + document.querySelector("#main").offsetWidth,
     },
   });
 }
 
 function initFunctions() {
   horizontalTitle();
-  historySection();
-  showGlitch();
+  challenges();
 }
 
 function onResize() {

@@ -11,13 +11,13 @@ import Main from "../components/Main.astro";
     id="background"
     src="/background.webp"
     alt="Background"
-    class="fixed top-0 left-0 -z-10 w-full h-[100dvh] object-cover object-top"
+    class="w-screen h-dvh object-cover object-top fixed top-0 left-0 -z-10"
   />
   <img
     id="girl"
     src="/girl.webp"
     alt="Girl"
-    class="fixed z-10 top-0 left-0 w-3/4 sm:w-1/2 h-[100dvh] object-contain object-bottom drop-shadow-big"
+    class="w-3/4 sm:w-1/2 h-dvh object-contain object-bottom drop-shadow-big fixed top-0 left-0 pointer-events-none lg:z-10"
   />
 
   <Hero />
@@ -27,17 +27,6 @@ import Main from "../components/Main.astro";
   <History />
 
   <Main />
-
-  <video
-    id="glitch"
-    class="min-h-full min-w-full object-cover fixed z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-screen"
-    autoplay
-    loop
-    muted
-    playsinline
-  >
-    <source src="/glitch.mp4" type="video/mp4" />
-  </video>
 </Layout>
 
 <style>

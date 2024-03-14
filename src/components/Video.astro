@@ -1,0 +1,17 @@
+---
+interface Props {
+    src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<video
+  class="min-h-full min-w-full object-cover absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-screen opacity-10"
+  autoplay
+  loop
+  muted
+  playsinline
+>
+  <source src={`/${src}.mp4`} type="video/mp4" />
+</video>

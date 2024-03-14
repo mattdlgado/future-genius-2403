@@ -1,0 +1,37 @@
+form {
+  accent-color: #4ade80;
+}
+
+fieldset {
+  margin-bottom: 1em !important;
+  max-width: initial !important;
+}
+
+input:not([type="submit"]),
+select {
+  @apply bg-transparent w-full border-b-[1px] h-10;
+}
+
+.hs-input:not([type=checkbox]) {
+  width: 100% !important;
+}
+
+option {
+  @apply text-green-950;
+}
+
+form span {
+  @apply text-sm;
+}
+
+.hs-error-msg {
+  @apply text-sm opacity-50;
+}
+
+form a {
+  @apply underline;
+}
+
+.hs-form-booleancheckbox-display {
+  @apply flex gap-2;
+}

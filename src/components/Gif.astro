@@ -1,0 +1,13 @@
+---
+interface Props {
+  src: string;
+}
+
+const { src } = Astro.props;
+---
+
+<img
+  class="h-full w-full object-cover absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none mix-blend-screen opacity-10"
+  src={`/${src}.gif`}
+  loading="lazy"
+/>

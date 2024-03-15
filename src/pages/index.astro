@@ -2,7 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
 import Title from "../components/Title.astro";
-import History from "../components/History.astro";
+import Storytelling from "../components/Srotytelling.astro";
 import Main from "../components/Main.astro";
 import Form from "../components/Form.astro";
 ---
@@ -10,30 +10,37 @@ import Form from "../components/Form.astro";
 <Layout title="Welcome to Astro.">
   <img
     id="background"
+    class="w-screen h-dvh object-cover object-top fixed top-0 left-0 -z-10"
     src="/background.webp"
     alt="Background"
-    class="w-screen h-dvh object-cover object-top fixed top-0 left-0 -z-10"
   />
+
   <img
     id="girl"
+    class="w-3/5 md:w-1/2 h-3/4 md:h-dvh object-contain object-left-bottom drop-shadow-big fixed bottom-0 left-0 pointer-events-none z-10"
     src="/girl.webp"
     alt="Girl"
-    class="w-3/4 sm:w-1/2 h-dvh object-contain object-bottom drop-shadow-big fixed top-0 left-0 pointer-events-none lg:z-10"
   />
 
   <Hero />
 
   <Title />
 
-  <History />
+  <Storytelling />
 
   <Main />
 
-  <Form />
+  <button
+    id="info"
+    class="font-medium h-10 border border-white/10 backdrop-blur px-4 rounded-full flex items-center sticky w-fit bottom-10 left-10 z-10"
+    >Apúntate pinchando aquí</button
+  >
 
+  <Form />
 </Layout>
 
 <style>
+  #info,
   #background {
     opacity: 0;
     animation: fadeIn 1000ms ease-in-out forwards 1000ms;

@@ -12,6 +12,10 @@ select {
   @apply bg-transparent w-full border-b-[1px] h-10;
 }
 
+select {
+  @apply appearance-none rounded-none
+}
+
 .hs-input:not([type=checkbox]) {
   width: 100% !important;
 }
@@ -21,7 +25,7 @@ option {
 }
 
 form span {
-  @apply text-sm;
+  @apply text-sm opacity-50;
 }
 
 .hs-error-msg {

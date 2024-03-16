@@ -11,18 +11,17 @@ import Key from "./icons/Key.astro";
   <div class="cards-container w-fit md:flex md:flex-nowrap">
     <div class="card w-screen lg:w-[60vw] p-4 lg:ms-[40vw]">
       <GlassClrBox>
-        <div class="md:max-h-[80vh] overflow-y-auto">
-          <h2>¿A qué nos enfrentamos?</h2>
-          <p>...</p>
-          <p>Proyecto: Ciudades Inteligentes</p>
-          <p>Informe de misiones:</p>
-          <ul>
-            <li>Semana 1: Huella Eco</li>
-            <li>Semana 2: Optimiza consumo energético</li>
-            <li>Semana 3: Rutas inteligentes</li>
-            <li>Semana 4: EcoID del futuro</li>
-          </ul>
-          <!-- <p>Premio: Nombre del premio</p>
+        <h2>¿A qué nos enfrentamos?</h2>
+        <p>...</p>
+        <p>Proyecto: Ciudades Inteligentes</p>
+        <p>Informe de misiones:</p>
+        <ul>
+          <li>Semana 1: Huella Eco</li>
+          <li>Semana 2: Optimiza consumo energético</li>
+          <li>Semana 3: Rutas inteligentes</li>
+          <li>Semana 4: EcoID del futuro</li>
+        </ul>
+        <!-- <p>Premio: Nombre del premio</p>
           <p>Participación abierta a:</p>
           <ul>
             <li>Estudiantes de 1º y 2º de bachillerato de España.</li>
@@ -34,123 +33,109 @@ import Key from "./icons/Key.astro";
             ¡Es gratuito y pueden participar todos los alumnos que quieran de
             forma individual!
           </p> -->
-        </div>
       </GlassClrBox>
     </div>
     <div class="card w-screen lg:w-[60vw] p-4">
-      <GlassClrBox>
-        <div class="md:max-h-[80vh] overflow-y-auto">
-          <Leaf />
-          <h2>Semana 1: Huella Eco</h2>
-          <p>...</p>
-          <p>
-            Desarrollar una aplicación que permita calcular la “huella de
-            carbono” de una persona a partir de información pública disponible
-            en su móvil o introducida en un sistema web.
-          </p>
-          <p>
-            A partir de unas tablas de emisiones estándar ligadas a la
-            actividad, indicar las activar diarias de una persona y calcular las
-            emisiones producidas.
-          </p>
-          <p>Las actividades pueden ser:</p>
-          <ul>
-            <li>
-              Movilidad (desplazamiento en coche convencional o eléctrico, tren,
-              bus, avión)
-            </li>
-            <li>Hogar (electricidad, climatización)</li>
-            <li>Trabajo (según sector de actividad)</li>
-            <li>Ocio (espectáculos, deportes)</li>
-            <li>Pautas de consumo (alimentos, bebidas, textil)</li>
-          </ul>
-          <p>
-            Cargando la agenda diaria / mensual de la persona (con la ayuda de
-            agendas electrónicas o registros de movilidad) estimar el impacto en
-            la huella de carbono por día, mes, año.
-          </p>
-        </div>
-        <Gif src="m1" />
+      <GlassClrBox background="/m1.gif">
+        <Leaf />
+        <h2>Semana 1: Huella Eco</h2>
+        <p>...</p>
+        <p>
+          Desarrollar una aplicación que permita calcular la “huella de carbono”
+          de una persona a partir de información pública disponible en su móvil
+          o introducida en un sistema web.
+        </p>
+        <p>
+          A partir de unas tablas de emisiones estándar ligadas a la actividad,
+          indicar las activar diarias de una persona y calcular las emisiones
+          producidas.
+        </p>
+        <p>Las actividades pueden ser:</p>
+        <ul>
+          <li>
+            Movilidad (desplazamiento en coche convencional o eléctrico, tren,
+            bus, avión)
+          </li>
+          <li>Hogar (electricidad, climatización)</li>
+          <li>Trabajo (según sector de actividad)</li>
+          <li>Ocio (espectáculos, deportes)</li>
+          <li>Pautas de consumo (alimentos, bebidas, textil)</li>
+        </ul>
+        <p>
+          Cargando la agenda diaria / mensual de la persona (con la ayuda de
+          agendas electrónicas o registros de movilidad) estimar el impacto en
+          la huella de carbono por día, mes, año.
+        </p>
       </GlassClrBox>
     </div>
     <div class="card w-screen lg:w-[60vw] p-4">
-      <GlassClrBox>
-        <div class="md:max-h-[80vh] overflow-y-auto">
-          <Battery4 />
-          <h2>Semana 2: Optimiza consumo energético</h2>
-          <p>...</p>
-          <p>
-            Construir un prototipo en Arduino de una actividad empresarial
-            realizada con la idea de obtener el máximo ahorro energético y
-            aprovechar energías renovables.
-          </p>
-          <p>Elegir un sector:</p>
-          <ul>
-            <li>Logística</li>
-            <li>Construcción</li>
-            <li>Transformación</li>
-          </ul>
-          <p>
-            Optimizar el modelo de manera que aproveche mejor las energías
-            renovables (wind charger, celdas solares) para el desarrollo de la
-            actividad y optimizar el consumo energético.
-          </p>
-        </div>
-        <Gif src="m2" />
+      <GlassClrBox background="/m2.gif">
+        <Battery4 />
+        <h2>Semana 2: Optimiza consumo energético</h2>
+        <p>...</p>
+        <p>
+          Construir un prototipo en Arduino de una actividad empresarial
+          realizada con la idea de obtener el máximo ahorro energético y
+          aprovechar energías renovables.
+        </p>
+        <p>Elegir un sector:</p>
+        <ul>
+          <li>Logística</li>
+          <li>Construcción</li>
+          <li>Transformación</li>
+        </ul>
+        <p>
+          Optimizar el modelo de manera que aproveche mejor las energías
+          renovables (wind charger, celdas solares) para el desarrollo de la
+          actividad y optimizar el consumo energético.
+        </p>
       </GlassClrBox>
     </div>
     <div class="card w-screen lg:w-[60vw] p-4">
-      <GlassClrBox>
-        <div class="md:max-h-[80vh] overflow-y-auto">
-          <RouteX2 />
-          <h2>Semana 3: Rutas Inteligentes</h2>
-          <p>...</p>
-          <p>
-            Crear un agente de software en un lenguaje sencillo (por ejemplo,
-            Scratch) para simular la ruta de un camión que tiene que recoger
-            residuos en una “ciudad inteligente”.
-          </p>
-          <p>
-            Crear un mapa de la ciudad con puntos de reciclaje por donde el/los
-            camiones deberán pasar para recoger los residuos optimizando las
-            rutas de manera de ahorrar energía y optimizar el número de
-            camiones.
-          </p>
-          <p>
-            Simular varias situaciones con distintos tamaños de ciudad cantidad,
-            capacidad y consumo de los camiones y encontrar el punto óptimo.
-          </p>
-        </div>
-        <Gif src="m3" />
+      <GlassClrBox background="/m3.gif">
+        <RouteX2 />
+        <h2>Semana 3: Rutas Inteligentes</h2>
+        <p>...</p>
+        <p>
+          Crear un agente de software en un lenguaje sencillo (por ejemplo,
+          Scratch) para simular la ruta de un camión que tiene que recoger
+          residuos en una “ciudad inteligente”.
+        </p>
+        <p>
+          Crear un mapa de la ciudad con puntos de reciclaje por donde el/los
+          camiones deberán pasar para recoger los residuos optimizando las rutas
+          de manera de ahorrar energía y optimizar el número de camiones.
+        </p>
+        <p>
+          Simular varias situaciones con distintos tamaños de ciudad cantidad,
+          capacidad y consumo de los camiones y encontrar el punto óptimo.
+        </p>
       </GlassClrBox>
     </div>
     <div class="card w-screen lg:w-[60vw] p-4">
-      <GlassClrBox>
-        <div class="md:max-h-[80vh] overflow-y-auto">
-          <Key />
-          <h2>Semana 4: EcoID del futuro</h2>
-          <p>...</p>
-          <p>
-            Para disminuir el consumo de papel, tinta, plásticos vamos a crear
-            una tarjeta de identificación digital para acceder a los servicios
-            de una instalación pública.
-          </p>
-          <p>
-            Crear un sistema de registro que captura y almacena los datos
-            personales de una forma segura.
-          </p>
-          <p>
-            Luego un programa de identificación que se pueda utilizar para
-            acceder a la aplicación de huella, al tablero de control del
-            prototipo de Arduino o a la aplicación de camiones.
-          </p>
-          <p>
-            La persona deberá identificarse con un nombre de usuario y, al menos
-            dos factores de identificación (password, email, sms, huella
-            digital, pregunta u operación matemática sencilla, foto).
-          </p>
-        </div>
-        <Gif src="m4" />
+      <GlassClrBox background="/m4.gif">
+        <Key />
+        <h2>Semana 4: EcoID del futuro</h2>
+        <p>...</p>
+        <p>
+          Para disminuir el consumo de papel, tinta, plásticos vamos a crear una
+          tarjeta de identificación digital para acceder a los servicios de una
+          instalación pública.
+        </p>
+        <p>
+          Crear un sistema de registro que captura y almacena los datos
+          personales de una forma segura.
+        </p>
+        <p>
+          Luego un programa de identificación que se pueda utilizar para acceder
+          a la aplicación de huella, al tablero de control del prototipo de
+          Arduino o a la aplicación de camiones.
+        </p>
+        <p>
+          La persona deberá identificarse con un nombre de usuario y, al menos
+          dos factores de identificación (password, email, sms, huella digital,
+          pregunta u operación matemática sencilla, foto).
+        </p>
       </GlassClrBox>
     </div>
   </div>

@@ -43,7 +43,7 @@ function horizontalScrollChallenges() {
       ease: "none",
       scrollTrigger: {
         trigger: ".pin-panel",
-        start: "top top",
+        start: "top 5%",
         end: "+=200%",
         pin: true,
         scrub: true,

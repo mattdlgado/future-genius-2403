@@ -9,14 +9,14 @@ fieldset {
 
 input:not([type="submit"]),
 select {
-  @apply bg-transparent w-full border-b-[1px] h-10;
+  @apply bg-transparent w-full border-b-[1px];
 }
 
 select {
-  @apply appearance-none rounded-none
+  @apply appearance-none rounded-none;
 }
 
-.hs-input:not([type=checkbox]) {
+.hs-input:not([type="checkbox"]) {
   width: 100% !important;
 }
 

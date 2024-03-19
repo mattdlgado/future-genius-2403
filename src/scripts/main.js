@@ -1,9 +1,4 @@
-// Import statements for GSAP and Lenis
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "@studio-freight/lenis";
-
-// Utility function to add smooth scrolling to specific sections
+// Scroll to a specific section
 function scrollToSection(id) {
   const section = document.getElementById(id);
   if (section) {
@@ -15,39 +10,48 @@ function scrollToSection(id) {
   }
 }
 
-// Optimized event listener assignments
-["scrollToForm", "scrollToFaqs", "top"].forEach((id) => {
-  document.getElementById(id).addEventListener("click", () => {
-    if (id === "top") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      scrollToSection(id.replace("scrollTo", "").toLowerCase());
-    }
+document.getElementById("scrollToForm").addEventListener("click", function () {
+  scrollToSection("form");
+});
+
+document.getElementById("scrollToFaqs").addEventListener("click", function () {
+  scrollToSection("faqs");
+});
+
+document.getElementById("top").addEventListener("click", function () {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
   });
 });
 
-// Optimized girl positions handling
+// Girl positions
 const girl = document.getElementById("girl");
-let girlPositionFixed = false;
+const windowSize = window.innerHeight;
+const bodyHeight = document.body.offsetHeight;
+const maxScrollPosition = bodyHeight - windowSize - windowSize;
 
 function handleScroll() {
-  const maxScrollPosition =
-    document.body.offsetHeight - window.innerHeight - window.innerHeight;
-  const currentPositionFixed = window.scrollY >= maxScrollPosition;
+  const scrollPosition = window.scrollY;
 
-  if (currentPositionFixed !== girlPositionFixed) {
-    girl.style.position = currentPositionFixed ? "fixed" : "sticky";
-    girlPositionFixed = currentPositionFixed;
+  if (scrollPosition >= maxScrollPosition) {
+    girl.style.position = "fixed";
+  } else {
+    girl.style.position = "-webkit-sticky";
+    girl.style.position = "sticky";
   }
 }
 
 window.addEventListener("scroll", handleScroll);
 
-// GSAP setup
+// GSAP
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
 const windowWidth = window.innerWidth;
 
-function horizontalScrollAnimations() {
+function horizontalScrollTitle() {
   const sectionWidth = document.querySelector("#title > p").offsetWidth;
 
   if (windowWidth < sectionWidth) {
@@ -63,7 +67,9 @@ function horizontalScrollAnimations() {
       },
     });
   }
+}
 
+function horizontalScrollChallenges() {
   const cards = gsap.utils.toArray(".card");
   const cardsContainer = document.querySelector(".cards-container");
   const horizontalTween = gsap.to(cardsContainer, {
@@ -94,7 +100,10 @@ function horizontalScrollAnimations() {
 }
 
 function initFunctions() {
-  horizontalScrollAnimations();
+  horizontalScrollTitle();
+  if (windowWidth > 768) {
+    horizontalScrollChallenges();
+  }
 }
 
 function onResize() {
@@ -105,7 +114,8 @@ function onResize() {
 window.addEventListener("resize", onResize);
 initFunctions();
 
-// Lenis for smooth scrolling
+// Lenis
+import Lenis from "@studio-freight/lenis";
 const lenis = new Lenis();
 
 function raf(time) {

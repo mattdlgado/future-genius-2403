@@ -3,7 +3,6 @@
 import "@fontsource-variable/oswald";
 // Supports weights 400-700
 import "@fontsource-variable/kode-mono";
-
 import "../styles/form.css";
 
 import SEO from "../components/SEO.astro";
@@ -21,7 +20,7 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth scroll-pt-[89px]">
+<html lang="es" class="lenis lenis-smooth scroll-pt-[89px]">
   <head>
     <SEO
       title={title}
@@ -43,6 +42,29 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
     <slot />
     <script src="../scripts/main.js"></script>
     <style is:global>
+      /** Lenis */
+      html.lenis,
+      html.lenis body {
+        height: auto;
+      }
+
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+
+      /** Scrollbar */
       ::-webkit-scrollbar {
         @apply w-2;
       }

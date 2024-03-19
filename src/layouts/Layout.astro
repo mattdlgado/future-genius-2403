@@ -2,7 +2,7 @@
 // Supports weights 200-700
 import "@fontsource-variable/oswald";
 // Supports weights 400-700
-import '@fontsource-variable/kode-mono';
+import "@fontsource-variable/kode-mono";
 
 import "../styles/form.css";
 
@@ -26,9 +26,6 @@ const { title } = Astro.props;
   <body class="bg-cyan-950 font-mono text-base text-green-50">
     <slot />
     <script src="../scripts/main.js"></script>
-    <script
-      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
-      type="module"></script>
   </body>
 </html>
 
@@ -59,6 +56,22 @@ const { title } = Astro.props;
   }
 
   /** Animations */
+  #info,
+  #background {
+    opacity: 0;
+    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
+  }
+
+  #girl {
+    transform: translateX(-100%);
+    animation: slideRight 1000ms ease-in-out forwards 1000ms;
+  }
+
+  .interface {
+    opacity: 0;
+    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
+  }
+
   @keyframes fadeIn {
     100% {
       opacity: 1;

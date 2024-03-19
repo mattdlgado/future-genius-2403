@@ -9,11 +9,12 @@ fieldset {
 
 input:not([type="submit"]),
 select {
-  @apply bg-transparent w-full border-b-[1px];
+  @apply bg-transparent w-full border-none rounded-none;
+  border-block-end: 1px solid;
 }
 
 select {
-  @apply appearance-none rounded-none;
+  @apply appearance-none;
 }
 
 .hs-input:not([type="checkbox"]) {
@@ -38,4 +39,8 @@ form a {
 
 .hs-form-booleancheckbox-display {
   @apply flex gap-2;
+}
+
+input[type="submit"] {
+  @apply cursor-pointer;
 }

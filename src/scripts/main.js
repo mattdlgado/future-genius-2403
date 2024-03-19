@@ -1,4 +1,3 @@
-
 // Scroll to form
 document.getElementById("top").addEventListener("click", function () {
   window.scrollTo({
@@ -8,13 +7,13 @@ document.getElementById("top").addEventListener("click", function () {
 });
 
 // Positions
-window.addEventListener('scroll', function() {
-  var elemento = document.getElementById('girl');
+window.addEventListener("scroll", function () {
+  var elemento = document.getElementById("girl");
   if (window.scrollY > 300) {
-    elemento.style.position = 'fixed';
+    elemento.style.position = "fixed";
   } else {
-    elemento.style.position = '-webkit-sticky'; /* Para Safari */
-    elemento.style.position = 'sticky';
+    elemento.style.position = "-webkit-sticky"; /* Para Safari */
+    elemento.style.position = "sticky";
   }
 });
 
@@ -23,7 +22,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-console.clear();
 const windowWidth = window.innerWidth;
 
 function horizontalScrollTitle() {
@@ -45,40 +43,40 @@ function horizontalScrollTitle() {
 }
 
 function horizontalScrollChallenges() {
-  if (windowWidth > 768) {
-    const cards = gsap.utils.toArray(".card");
-    const cardsContainer = document.querySelector(".cards-container");
-    const horizontalTween = gsap.to(cardsContainer, {
-      x: window.innerWidth - cardsContainer.scrollWidth,
-      duration: cards.length,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".pin-panel",
-        start: "top 89px",
-        end: "+=200%",
-        pin: true,
-        scrub: true,
-      },
-    });
-    cards.shift();
+  const cards = gsap.utils.toArray(".card");
+  const cardsContainer = document.querySelector(".cards-container");
+  const horizontalTween = gsap.to(cardsContainer, {
+    x: window.innerWidth - cardsContainer.scrollWidth,
+    duration: cards.length,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".pin-panel",
+      start: "top 89px",
+      end: "+=200%",
+      pin: true,
+      scrub: true,
+    },
+  });
+  cards.shift();
 
-    cards.forEach((card) =>
-      gsap.to(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "left 90%",
-          end: "center 90%",
-          scrub: true,
-          containerAnimation: horizontalTween,
-        },
-      })
-    );
-  }
+  cards.forEach((card) =>
+    gsap.to(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "left 90%",
+        end: "center 90%",
+        scrub: true,
+        containerAnimation: horizontalTween,
+      },
+    })
+  );
 }
 
 function initFunctions() {
   horizontalScrollTitle();
-  horizontalScrollChallenges();
+  if (windowWidth > 768) {
+    horizontalScrollChallenges();
+  }
 }
 
 function onResize() {

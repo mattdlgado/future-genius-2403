@@ -32,7 +32,7 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
     />
   </head>
   <body
-    class="bg-[url('/background.webp')] bg-no-repeat bg-center bg-cover bg-fixed bg-cyan-950 font-mono text-base text-green-50"
+    class="bg-[url('/background.webp')] bg-no-repeat bg-center bg-cover bg-cyan-950 font-mono text-base text-green-50"
   >
     <div
       id="loader"
@@ -86,6 +86,10 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
       }
 
       /** Reset */
+      body {
+        background-attachment: fixed;
+      }
+
       svg {
         @apply max-w-full h-auto;
       }

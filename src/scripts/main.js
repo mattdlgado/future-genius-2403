@@ -1,4 +1,23 @@
-// Scroll to form
+// Scroll to a specific section
+function scrollToSection(id) {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }
+}
+
+document.getElementById("scrollToForm").addEventListener("click", function () {
+  scrollToSection("form");
+});
+
+document.getElementById("scrollToFaqs").addEventListener("click", function () {
+  scrollToSection("faqs");
+});
+
 document.getElementById("top").addEventListener("click", function () {
   window.scrollTo({
     top: 0,
@@ -6,16 +25,24 @@ document.getElementById("top").addEventListener("click", function () {
   });
 });
 
-// Positions
-window.addEventListener("scroll", function () {
-  var elemento = document.getElementById("girl");
-  if (window.scrollY > 300) {
-    elemento.style.position = "fixed";
+// Girl positions
+const girl = document.getElementById("girl");
+const windowSize = window.innerHeight;
+const bodyHeight = document.body.offsetHeight;
+const maxScrollPosition = bodyHeight - windowSize - windowSize;
+
+function handleScroll() {
+  const scrollPosition = window.scrollY;
+
+  if (scrollPosition >= maxScrollPosition) {
+    girl.style.position = "fixed";
   } else {
-    elemento.style.position = "-webkit-sticky"; /* Para Safari */
-    elemento.style.position = "sticky";
+    girl.style.position = "-webkit-sticky";
+    girl.style.position = "sticky";
   }
-});
+}
+
+window.addEventListener("scroll", handleScroll);
 
 // GSAP
 import { gsap } from "gsap";
@@ -89,19 +116,10 @@ initFunctions();
 
 // Lenis
 import Lenis from "@studio-freight/lenis";
+const lenis = new Lenis();
 
-const lenis = new Lenis({
-  duration: 1.2,
-  easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
-  direction: "vertical",
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-});
-
-//get scroll value
-lenis.on("scroll", ({ scroll, limit, velocity, direction, progress }) => {
-  console.log({ scroll, limit, velocity, direction, progress });
+lenis.on("scroll", (e) => {
+  console.log(e);
 });
 
 function raf(time) {

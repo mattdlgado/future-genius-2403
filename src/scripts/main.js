@@ -1,12 +1,4 @@
 
-// Scroll to form
-document.getElementById("info").addEventListener("click", function () {
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: "smooth",
-  });
-});
-
 // GSAP
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,7 +35,7 @@ function horizontalScrollChallenges() {
       ease: "none",
       scrollTrigger: {
         trigger: ".pin-panel",
-        start: "top 5%",
+        start: "top top",
         end: "+=200%",
         pin: true,
         scrub: true,

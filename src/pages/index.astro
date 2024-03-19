@@ -4,6 +4,7 @@ import Hero from "../components/Hero.astro";
 import Title from "../components/Title.astro";
 import Storytelling from "../components/Srotytelling.astro";
 import Main from "../components/Main.astro";
+import FAQs from "../components/FAQs.astro";
 import Form from "../components/Form.astro";
 ---
 
@@ -12,7 +13,7 @@ import Form from "../components/Form.astro";
     id="background"
     class="w-screen h-dvh object-cover object-top fixed top-0 left-0 -z-10"
     src="/background.webp"
-    alt="Background"
+    alt="background"
   />
   <img
     class="interface w-screen lg:w-1/2 h-dvh object-contain absolute top-0 left-0 lg:left-[45vw] pointer-events-none mix-blend-screen"
@@ -23,11 +24,15 @@ import Form from "../components/Form.astro";
     id="girl"
     class="w-3/5 md:w-1/2 h-3/4 md:h-dvh object-contain object-left-bottom drop-shadow-big fixed bottom-0 pointer-events-none z-10"
     src="/girl.webp"
-    alt="Girl"
+    alt="girl"
   />
-  <a href="#" class="interface w-[89px] h-[89px] fixed top-0 right-0 mix-blend-screen z-20">
+  <a
+    href="#faqs"
+    class="interface fixed top-0 right-0 mix-blend-screen z-20 flex items-center"
+  >
+    FAQs
     <img
-      class="object-contain"
+      class="object-contain w-[89px] h-[89px]"
       src="/interface-box.gif"
       alt="interface box"
       width="89px"
@@ -43,10 +48,12 @@ import Form from "../components/Form.astro";
 
   <Main />
 
-  <button
-    id="info"
+  <FAQs />
+
+  <a
+    href="#form"
     class="font-medium h-10 border border-white/10 backdrop-blur px-4 flex items-center sticky w-fit bottom-10 left-10 z-10"
-    >Apúntate pinchando aquí</button
+    >Apúntate pinchando aquí</a
   >
 
   <Form />

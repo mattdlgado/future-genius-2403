@@ -6,7 +6,7 @@ export default {
       fontFamily: {
         body: ['"Montserrat Variable"', "sans-serif"],
         accent: ["Oswald Variable", "sans-serif"],
-        mono: ["Sometype Mono Variable", "monospace"],
+        mono: ["Kode Mono Variable", "monospace"],
       },
       dropShadow: {
         big: "0 40px 40px rgba(0, 0, 0, 0.5)",

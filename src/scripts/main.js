@@ -7,6 +7,17 @@ document.getElementById("top").addEventListener("click", function () {
   });
 });
 
+// Positions
+window.addEventListener('scroll', function() {
+  var elemento = document.getElementById('girl');
+  if (window.scrollY > 300) {
+    elemento.style.position = 'fixed';
+  } else {
+    elemento.style.position = '-webkit-sticky'; /* Para Safari */
+    elemento.style.position = 'sticky';
+  }
+});
+
 // GSAP
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

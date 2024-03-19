@@ -6,7 +6,7 @@ import Immune from "./icons/Immune.astro";
 ---
 
 <section
-  class="min-h-dvh lg:ms-[40vw] p-4 flex flex-col items-center justify-center gap-4 relative z-20"
+  class="min-h-dvh lg:ms-[40vw] p-4 flex flex-col items-center justify-center gap-4 relative z-40"
 >
   <div>
     <FutureGenius />
@@ -29,6 +29,12 @@ import Immune from "./icons/Immune.astro";
   </div>
 </section>
 
+<img
+  class="interface w-screen lg:w-1/2 h-dvh object-contain absolute top-0 left-0 lg:left-[45vw] pointer-events-none mix-blend-screen"
+  src="/interface-circle.gif"
+  alt="interface blue circle"
+/>
+
 <style>
   div:first-child {
     opacity: 0;
@@ -40,5 +46,10 @@ import Immune from "./icons/Immune.astro";
     opacity: 0;
     transform: translatey(24px);
     animation: fadeInY 1000ms ease-in-out forwards 1000ms;
+  }
+
+  #girl {
+    transform: translateX(-100%);
+    animation: slideRight 1000ms ease-in-out forwards 1000ms;
   }
 </style>

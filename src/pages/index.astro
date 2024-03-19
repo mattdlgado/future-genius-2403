@@ -9,36 +9,26 @@ import FAQs from "../components/FAQs.astro";
 import Form from "../components/Form.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout
+  title="Future Genius - Eco Mission | IMMUNE Technology Institute"
+  description="Description"
+  keywords="future genius, immune"
+  canonical="https://futuregenius.immune.institute/"
+  robots="index, follow"
+  img="https://futuregenius.immune.institute/share.webp"
+>
   <Nav />
-
   <Hero />
-
   <Title />
-
   <Storytelling />
-
   <Main />
-
   <FAQs />
-
   <Form />
 
   <img
-    class="interface w-screen lg:w-1/2 h-dvh object-contain absolute top-0 left-0 lg:left-[45vw] pointer-events-none mix-blend-screen"
-    src="/interface-circle.gif"
-    alt="interface blue circle"
-  />
-  <img
     id="girl"
-    class="w-3/5 lg:w-1/2 h-3/4 lg:h-dvh object-contain object-left-bottom drop-shadow-big fixed bottom-0 pointer-events-none z-10"
+    class="w-3/5 lg:w-1/2 h-3/4 lg:h-dvh object-contain object-left-bottom drop-shadow-big sticky bottom-0 pointer-events-none z-10"
     src="/girl.webp"
     alt="girl"
-  />
-  <img
-    id="background"
-    class="w-screen h-dvh object-cover object-top fixed top-0 left-0 -z-10"
-    src="/background.webp"
-    alt="background"
   />
 </Layout>

@@ -6,99 +6,113 @@ import "@fontsource-variable/kode-mono";
 
 import "../styles/form.css";
 
+import SEO from "../components/SEO.astro";
+
 interface Props {
   title: string;
+  description: string;
+  keywords: string;
+  canonical: string;
+  robots: string;
+  img: string;
 }
 
-const { title } = Astro.props;
+const { title, description, keywords, canonical, robots, img } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="scroll-smooth scroll-pt-[89px]">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title}
+      description={description}
+      keywords={keywords}
+      canonical={canonical}
+      robots={robots}
+      img={img}
+    />
   </head>
-  <body class="bg-cyan-950 font-mono text-base text-green-50">
+  <body
+    class="bg-[url('/background.webp')] bg-no-repeat bg-center bg-cover bg-fixed bg-cyan-950 font-mono text-base text-green-50"
+  >
+    <div
+      id="loader"
+      class="w-screen h-dvh bg-cyan-950 fixed top-0 left-0 pointer-events-none z-30"
+    >
+    </div>
     <slot />
     <script src="../scripts/main.js"></script>
+    <style is:global>
+      ::-webkit-scrollbar {
+        @apply w-2;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        @apply bg-transparent;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        @apply bg-cyan-400;
+      }
+
+      *,
+      *::before,
+      *::after {
+        @apply focus-visible:outline-green-50;
+      }
+
+      /** Reset */
+      svg {
+        @apply max-w-full h-auto;
+      }
+
+      /** Animations */
+      #loader {
+        animation: fadeOut 1000ms ease-in-out forwards 1000ms;
+      }
+
+      .interface {
+        opacity: 0;
+        animation: fadeIn 1000ms ease-in-out forwards 1000ms;
+      }
+
+      @keyframes fadeIn {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeOut {
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeInY {
+        100% {
+          opacity: 1;
+          transform: translatey(0);
+        }
+      }
+
+      @keyframes slideRight {
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /** Glass box */
+      .glass h2,
+      .glass p,
+      .glass ul {
+        @apply mb-4;
+      }
+
+      .glass li:before {
+        content: "> ";
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  ::-webkit-scrollbar {
-    @apply w-2;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    @apply bg-transparent;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    @apply bg-cyan-400;
-  }
-
-  *,
-  *::before,
-  *::after {
-    @apply focus-visible:outline-green-50;
-  }
-
-  /** Reset */
-  svg {
-    @apply max-w-full h-auto;
-  }
-
-  /** Animations */
-  #info,
-  #background {
-    opacity: 0;
-    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
-  }
-
-  #girl {
-    transform: translateX(-100%);
-    animation: slideRight 1000ms ease-in-out forwards 1000ms;
-  }
-
-  .interface {
-    opacity: 0;
-    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
-  }
-
-  @keyframes fadeIn {
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeInY {
-    100% {
-      opacity: 1;
-      transform: translatey(0);
-    }
-  }
-
-  @keyframes slideRight {
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  /** Glass box */
-  .glass h2,
-  .glass p,
-  .glass ul {
-    @apply mb-4;
-  }
-
-  .glass li:before {
-    content: "> ";
-  }
-</style>

@@ -32,13 +32,8 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
     />
   </head>
   <body
-    class="bg-[url('/background.webp')] bg-no-repeat bg-center bg-cover bg-cyan-950 font-mono text-base text-green-50"
+    class="bg-cyan-950 font-mono text-base text-green-50"
   >
-    <div
-      id="loader"
-      class="w-screen h-dvh bg-cyan-950 fixed top-0 left-0 pointer-events-none z-30"
-    >
-    </div>
     <slot />
     <script src="../scripts/main.js"></script>
     <style is:global>
@@ -64,45 +59,37 @@ const { title, description, keywords, canonical, robots, img } = Astro.props;
       }
 
       /** Reset */
-      body {
-        background-attachment: fixed;
-      }
-
       svg {
         @apply max-w-full h-auto;
       }
 
       /** Animations */
-      #loader {
-        animation: fadeOut 1000ms ease-in-out forwards 1000ms;
-      }
-
       .interface {
         opacity: 0;
         animation: fadeIn 1000ms ease-in-out forwards 1000ms;
       }
 
       @keyframes fadeIn {
-        100% {
+        to {
           opacity: 1;
         }
       }
 
       @keyframes fadeOut {
-        100% {
+        to {
           opacity: 0;
         }
       }
 
       @keyframes fadeInY {
-        100% {
+        to {
           opacity: 1;
           transform: translatey(0);
         }
       }
 
       @keyframes slideRight {
-        100% {
+        to {
           transform: translateX(0);
         }
       }

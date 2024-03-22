@@ -31,4 +31,22 @@ import Form from "../components/Form.astro";
     src="/girl.webp"
     alt="girl"
   />
+  <img
+    id="background"
+    class="w-full h-dvh object-cover fixed top-0 left-0 pointer-events-none -z-10"
+    src="/background.webp"
+    alt="background"
+  />
 </Layout>
+
+<style>
+  #girl {
+    transform: translateX(-100%);
+    animation: slideRight 1000ms ease-in-out forwards 1000ms;
+  }
+
+  #background {
+    opacity: 0;
+    animation: fadeIn 1000ms ease-in-out forwards 1000ms;
+  }
+</style>

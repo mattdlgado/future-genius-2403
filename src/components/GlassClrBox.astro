@@ -1,12 +1,20 @@
+---
+interface Props {
+  h?: boolean;
+}
+
+const {h} = Astro.props
+---
+
 <div
-  class="glass lg:w-[55vw] overflow-y-auto bg-green-400/10 border border-green-50/25 backdrop-blur p-6 text-green-950 font-bold"
+class:list={["glass lg:w-[55vw] overflow-y-auto bg-green-400/10 border border-green-50/25 backdrop-blur p-6 text-green-950 font-bold", {"h": h}]}
 >
   <slot />
 </div>
 
 <style>
   @media (min-width: 768px) {
-    div {
+    .h {
       max-height: calc(100dvh - 144px);
     }
   }
